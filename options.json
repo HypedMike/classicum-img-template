@@ -1,6 +1,8 @@
 {
-    "label": "Ciao Crystel come come va la vita vita??",
-    "background_image": "/Users/michelesaladino/Documents/code/classicum-img-template/photo/pexels-bekah-allmark-10433551 copy.jpg",
+    "label": "text",
+    "font_path": "path",
+    "font_size": 12,
+    "background_image": "path",
     "label_color": "#000fff",
     "logos": []
 }

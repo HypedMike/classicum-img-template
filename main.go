@@ -14,6 +14,8 @@ type optionsStruct struct {
 	LabelColor      string   `json:"label_color"`
 	BackgroundImage string   `json:"background_image"`
 	Logos           []string `json:"logos"`
+	FontPath        string   `json:"font_path"`
+	FontSize        int      `json:"font_size"`
 }
 
 func main() {
@@ -65,7 +67,7 @@ func createImage(options optionsStruct) {
 		B: uint8(rgba[2]),
 	}
 
-	err = image.AddTextCentral(options.Label, color, 100)
+	err = image.AddTextCentral(options.Label, color, options.FontSize)
 	if err != nil {
 		fmt.Println(err)
 	}
