@@ -70,7 +70,7 @@ func createImage(options optionsStruct) {
 		B: uint8(rgba[2]),
 	}
 
-	err = image.AddTextCentral(options.Label, color, options.FontSize)
+	err = image.AddTextCentral(options.Label, color, options.FontSize, options.FontPath)
 	if err != nil {
 		fmt.Println(err)
 	}

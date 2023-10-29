@@ -51,7 +51,7 @@ func (i *Img) AddImage(img image.Image, x, y int) {
 /*
 add text to image
 */
-func (img *Img) addText(x, y int, label string, _color ColorRGBA) error {
+func (img *Img) addText(x, y int, label string, _color ColorRGBA, fontPath string) error {
 	col := color.RGBA{_color.R, _color.G, _color.B, _color.A}
 	point := fixed.Point26_6{X: fixed.I(x), Y: fixed.I(y)}
 
@@ -81,7 +81,7 @@ func (img *Img) addText(x, y int, label string, _color ColorRGBA) error {
 	return nil
 }
 
-func (img *Img) AddTextCentral(label string, _color ColorRGBA, fontSize int) error {
+func (img *Img) AddTextCentral(label string, _color ColorRGBA, fontSize int, fontPath string) error {
 
 	// if text length exceeds image width, divide text
 	if len(label)*fontSize > img.Width {
@@ -89,7 +89,7 @@ func (img *Img) AddTextCentral(label string, _color ColorRGBA, fontSize int) err
 		for i, l := range labels {
 			newY := img.Height/2 - (fontSize * len(labels) / 2) + (i * fontSize) + 50
 			newX := (img.Width / 2) - (len(l) * fontSize / 4) + 50
-			err := img.addText(newX, newY, l, _color)
+			err := img.addText(newX, newY, l, _color, fontPath)
 			if err != nil {
 				return err
 			}
@@ -101,7 +101,7 @@ func (img *Img) AddTextCentral(label string, _color ColorRGBA, fontSize int) err
 	x := (img.Width / 2) - (len(label) * fontSize / 4)
 	y := (img.Height / 2) - (fontSize / 2)
 
-	img.addText(x, y, label, _color)
+	img.addText(x, y, label, _color, fontPath)
 	return nil
 }
 
