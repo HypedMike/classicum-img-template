@@ -4,5 +4,6 @@
     "font_size": 12,
     "background_image": "path",
     "label_color": "#000fff",
-    "logos": []
+    "logos": [],
+    "save_path": "path"
 }

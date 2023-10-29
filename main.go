@@ -7,6 +7,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/google/uuid"
 )
 
 type optionsStruct struct {
@@ -16,6 +18,7 @@ type optionsStruct struct {
 	Logos           []string `json:"logos"`
 	FontPath        string   `json:"font_path"`
 	FontSize        int      `json:"font_size"`
+	SavePath        string   `json:"save_path"`
 }
 
 func main() {
@@ -71,7 +74,7 @@ func createImage(options optionsStruct) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	err = image.SaveImage(fmt.Sprintf("/Users/michelesaladino/Documents/code/classicum-img-template/temp/%s.png", "test"))
+	err = image.SaveImage(fmt.Sprintf("%s/%s.png", options.SavePath, uuid.New().String()))
 	if err != nil {
 		fmt.Println(err)
 	}
