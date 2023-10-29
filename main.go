@@ -80,10 +80,8 @@ func createImage(options optionsStruct) {
 func hexToRGBA(hex string) ([]int, error) {
 	var rgba []int
 
-	// Remove the "#" prefix if it exists
-	if strings.HasPrefix(hex, "#") {
-		hex = hex[1:]
-	}
+	// Remove the "#" prefix
+	hex = strings.TrimPrefix(hex, "#")
 
 	// Convert the hex string to an integer
 	hexInt, err := strconv.ParseUint(hex, 16, 32)
